@@ -1,6 +1,6 @@
 # E.L.L.A V2 - Elegant Language & Logic Assistant
 
-![Python](https://img.shields.io/badge/Python-3.10%20%7C%203.11-blue?logo=python)
+![Python](https://img.shields.io/badge/Python-3.14-blue?logo=python)
 ![React](https://img.shields.io/badge/React-18.2-61DAFB?logo=react)
 ![Electron](https://img.shields.io/badge/Electron-28-47848F?logo=electron)
 ![Gemini](https://img.shields.io/badge/Google%20Gemini-Native%20Audio-4285F4?logo=google)
@@ -39,43 +39,6 @@ ELLA's "Minority Report" interface uses your webcam to detect hand gestures:
 
 ---
 
-## 🏗️ Architecture Overview
-
-```mermaid
-graph TB
-    subgraph Frontend ["Frontend (Electron + React)"]
-        UI[React UI]
-        THREE[Three.js 3D Viewer]
-        GESTURE[MediaPipe Gestures]
-        SOCKET_C[Socket.IO Client]
-    end
-
-    subgraph Backend ["Backend (Python 3.11 + FastAPI)"]
-        SERVER[server.py<br/>Socket.IO Server]
-        ELLA[ada.py<br/>Gemini Live API]
-        WEB[web_agent.py<br/>Playwright Browser]
-        CAD[cad_agent.py<br/>CAD + build123d]
-        PRINTER[printer_agent.py<br/>3D Printing + OrcaSlicer]
-        KASA[kasa_agent.py<br/>Smart Home]
-        AUTH[authenticator.py<br/>MediaPipe Face Auth]
-        PM[project_manager.py<br/>Project Context]
-    end
-
-    UI --> SOCKET_C
-    SOCKET_C <--> SERVER
-    SERVER --> ELLA
-    ELLA --> WEB
-    ELLA --> CAD
-    ELLA --> KASA
-    SERVER --> AUTH
-    SERVER --> PM
-    SERVER --> PRINTER
-    CAD -->|STL file| THREE
-    CAD -->|STL file| PRINTER
-```
-
----
-
 ## ⚡ TL;DR Quick Start (Experienced Developers)
 
 <details>
@@ -83,10 +46,10 @@ graph TB
 
 ```bash
 # 1. Clone and enter
-git clone https://github.com/nazirlouis/ada_v2.git && cd ada_v2
+git clone https://github.com/nazirlouis/ada_v2.git ELLA && cd ELLA
 
 # 2. Create Python environment (Python 3.11)
-conda create -n ada_v2 python=3.11 -y && conda activate ada_v2
+conda create -n ella python=3.14 -y && conda activate ella
 brew install portaudio  # macOS only (for PyAudio)
 pip install -r requirements.txt
 playwright install chromium
@@ -98,7 +61,7 @@ npm install
 echo "GEMINI_API_KEY=your_key_here" > .env
 
 # 5. Run!
-conda activate ada_v2 && npm run dev
+conda activate ella && npm run dev
 ```
 
 </details>
@@ -131,15 +94,15 @@ If you have never coded before, follow these steps first!
 1. Open your terminal (or Command Prompt on Windows).
 2. Type this command and hit Enter:
    ```bash
-   git clone https://github.com/nazirlouis/ada_v2.git
+   git clone https://github.com/nazirlouis/ada_v2.git ELLA
    ```
-3. This creates a folder named `ada_v2`.
+3. This creates a folder named `ELLA`.
 
 **Step 5: Open in VS Code**
 
 1. Open VS Code.
 2. Go to **File > Open Folder**.
-3. Select the `ada_v2` folder you just downloaded.
+3. Select the `ELLA` folder you just downloaded.
 4. Open the internal terminal: Press `Ctrl + ~` (tilde) or go to **Terminal > New Terminal**.
 
 ---
@@ -166,8 +129,8 @@ brew install portaudio
 Create a single Python 3.11 environment:
 
 ```bash
-conda create -n ada_v2 python=3.11
-conda activate ada_v2
+conda create -n ella python=3.14
+conda activate ella
 
 # Install all dependencies
 pip install -r requirements.txt
@@ -194,7 +157,7 @@ To use the secure voice features, ELLA needs to know what you look like.
 
 1. Take a clear photo of your face (or use an existing one).
 2. Rename the file to `reference.jpg`.
-3. Drag and drop this file into the `ada_v2/backend` folder.
+3. Drag and drop this file into the `ELLA/backend` folder.
 4. (Optional) You can toggle this feature on/off in `settings.json` by changing `"face_auth_enabled": true/false`.
 
 ---
@@ -246,7 +209,7 @@ ELLA uses Google's Gemini API for voice and intelligence. You need a free API ke
 1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey).
 2. Sign in with your Google account.
 3. Click **"Create API Key"** and copy the generated key.
-4. Create a file named `.env` in the `ada_v2` folder (same level as `README.md`).
+4. Create a file named `.env` in the `ELLA` folder (same level as `README.md`).
 5. Add this line to the file:
    ```
    GEMINI_API_KEY=your_api_key_here
@@ -259,14 +222,14 @@ ELLA uses Google's Gemini API for voice and intelligence. You need a free API ke
 
 ## 🚀 Running ELLA V2
 
-You have two options to run the app. Ensure your `ada_v2` environment is active!
+You have two options to run the app. Ensure your `ella` environment is active!
 
 ### Option 1: The "Easy" Way (Single Terminal)
 
 The app is smart enough to start the backend for you.
 
-1. Open your terminal in the `ada_v2` folder.
-2. Activate your environment: `conda activate ada_v2`
+1. Open your terminal in the `ELLA` folder.
+2. Activate your environment: `conda activate ella`
 3. Run:
    ```bash
    npm run dev
@@ -280,7 +243,7 @@ Use this if you want to see the Python logs (recommended for debugging).
 **Terminal 1 (Backend):**
 
 ```bash
-conda activate ada_v2
+conda activate ella
 python backend/server.py
 ```
 
@@ -352,7 +315,7 @@ npm run dev
 
 **Solution**:
 
-1. Make sure your `.env` file is in the root `ada_v2` folder (not inside `backend/`).
+1. Make sure your `.env` file is in the root `ELLA` folder (not inside `backend/`).
 2. Verify the format is exactly: `GEMINI_API_KEY=your_key` (no quotes, no spaces).
 3. Restart the backend after editing the file.
 
@@ -376,7 +339,7 @@ _Coming soon! Screenshots and demo videos will be added here._
 ## 📂 Project Structure
 
 ```
-ada_v2/
+ELLA/
 ├── backend/                    # Python server & AI logic
 │   ├── ada.py                  # Gemini Live API integration
 │   ├── server.py               # FastAPI + Socket.IO server
@@ -387,13 +350,19 @@ ada_v2/
 │   ├── authenticator.py        # MediaPipe face auth logic
 │   ├── project_manager.py      # Project context management
 │   ├── tools.py                # Tool definitions for Gemini
-│   └── reference.jpg           # Your face photo (add this!)
+│   └── settings.json           # Backend specific settings
 ├── src/                        # React frontend
 │   ├── App.jsx                 # Main application component
-│   ├── components/             # UI components (11 files)
+│   ├── main.jsx                # React entry point
+│   ├── components/             # UI components
+│   │   ├── AuthLock.jsx        # Face authentication screen
+│   │   ├── CadWindow.jsx       # 3D model viewer & controls
+│   │   ├── PrinterWindow.jsx   # 3D printer management
+│   │   └── ... (8 more)
 │   └── index.css               # Global styles
 ├── electron/                   # Electron main process
 │   └── main.js                 # Window & IPC setup
+├── printer_profiles/           # OrcaSlicer/PrusaSlicer profiles
 ├── projects/                   # User project data (auto-created)
 ├── .env                        # API keys (create this!)
 ├── requirements.txt            # Python dependencies
@@ -463,6 +432,6 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 ---
 
 <p align="center">
-  <strong>Built with 🤖 by SK</strong><br>
+  <strong>Built with by SK</strong><br>
   <em>Bridging AI, CAD, and Vision in a Single Interface</em>
 </p>
