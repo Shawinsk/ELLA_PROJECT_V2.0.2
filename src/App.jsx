@@ -1427,6 +1427,10 @@ function App() {
 
 
                 <div className="flex items-center gap-2 pr-2" style={{ WebkitAppRegion: 'no-drag' }}>
+                    {/* Build Credit */}
+                    <div className="hidden sm:block text-[10px] text-cyan-500/30 font-bold tracking-widest mr-4">
+                        BUILD BY SK
+                    </div>
                     {/* Live Clock */}
                     <div className="flex items-center gap-1.5 text-[11px] text-cyan-300/70 font-mono px-2">
                         <Clock size={12} className="text-cyan-500/50" />
