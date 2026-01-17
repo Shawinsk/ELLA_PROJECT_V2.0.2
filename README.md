@@ -46,7 +46,7 @@ ELLA's "Minority Report" interface uses your webcam to detect hand gestures:
 
 ```bash
 # 1. Clone and enter
-git clone https://github.com/nazirlouis/ada_v2.git ELLA && cd ELLA
+git clone https://github.com/Shawinsk/ELLA_PROJECT_V2.0.2.git ELLA && cd ELLA
 
 # 2. Create Python environment (Python 3.11)
 conda create -n ella python=3.14 -y && conda activate ella
@@ -94,7 +94,7 @@ If you have never coded before, follow these steps first!
 1. Open your terminal (or Command Prompt on Windows).
 2. Type this command and hit Enter:
    ```bash
-   git clone https://github.com/nazirlouis/ada_v2.git ELLA
+   git clone https://github.com/Shawinsk/ELLA_PROJECT_V2.0.2.git ELLA
    ```
 3. This creates a folder named `ELLA`.
 
