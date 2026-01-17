@@ -11,6 +11,10 @@
 ELLA V2 is a sophisticated AI assistant designed for multimodal interaction. It combines Google's Gemini 2.5 Native Audio with computer vision, gesture control, and 3D CAD generation in a Electron desktop application.
 
 ---
+##IMAGES
+
+<img width="1911" height="1025" alt="image" src="https://github.com/user-attachments/assets/f5039a92-5c9f-4cc2-bd37-bdf95474fe0b" />
+
 
 ## 🌟 Capabilities at a Glance
 
