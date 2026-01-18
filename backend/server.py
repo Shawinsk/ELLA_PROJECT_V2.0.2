@@ -19,10 +19,10 @@ from pathlib import Path
 
 
 
-# Ensure we can import ada
+# Ensure we can import ella
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-import ada
+import ella
 from authenticator import FaceAuthenticator
 from kasa_agent import KasaAgent
 
@@ -252,7 +252,7 @@ async def start_audio(sid, data=None):
     # Callback to send CAD status to frontend
     def on_cad_status(status):
         # status can be: 
-        # - a string like "generating" (from ada.py handle_cad_request)
+        # - a string like "generating" (from ella.py handle_cad_request)
         # - a dict with {status, attempt, max_attempts, error} (from CadAgent)
         if isinstance(status, dict):
             print(f"Sending CAD Status: {status.get('status')} (attempt {status.get('attempt')}/{status.get('max_attempts')})")
@@ -285,7 +285,7 @@ async def start_audio(sid, data=None):
     # Initialize ELLA
     try:
         print(f"Initializing AudioLoop with device_index={device_index}")
-        audio_loop = ada.AudioLoop(
+        audio_loop = ella.AudioLoop(
             video_mode="none", 
             on_audio_data=on_audio_data,
             on_cad_data=on_cad_data,

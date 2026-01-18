@@ -46,7 +46,7 @@ const ChatModule = ({
             >
                 {messages.slice(-5).map((msg, i) => (
                     <div key={i} className="text-sm border-l-2 border-cyan-800/50 pl-3 py-1">
-                        <span className="text-cyan-600 font-mono text-xs opacity-70">[{msg.time}]</span> <span className="font-bold text-cyan-300 drop-shadow-sm">{msg.sender === 'ADA' ? 'ELLA' : msg.sender}</span>
+                        <span className="text-cyan-600 font-mono text-xs opacity-70">[{msg.time}]</span> <span className="font-bold text-cyan-300 drop-shadow-sm">{msg.sender}</span>
                         <div className="text-gray-300 mt-1 leading-relaxed">{msg.text}</div>
                     </div>
                 ))}

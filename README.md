@@ -11,10 +11,10 @@
 ELLA V2 is a sophisticated AI assistant designed for multimodal interaction. It combines Google's Gemini 2.5 Native Audio with computer vision, gesture control, and 3D CAD generation in a Electron desktop application.
 
 ---
+
 ##IMAGES
 
 <img width="1911" height="1025" alt="image" src="https://github.com/user-attachments/assets/f5039a92-5c9f-4cc2-bd37-bdf95474fe0b" />
-
 
 ## 🌟 Capabilities at a Glance
 
@@ -345,7 +345,7 @@ _Coming soon! Screenshots and demo videos will be added here._
 ```
 ELLA/
 ├── backend/                    # Python server & AI logic
-│   ├── ada.py                  # Gemini Live API integration
+│   ├── ella.py                 # Gemini Live API integration
 │   ├── server.py               # FastAPI + Socket.IO server
 │   ├── cad_agent.py            # CAD generation orchestrator
 │   ├── printer_agent.py        # 3D printer discovery & slicing
@@ -436,6 +436,6 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 ---
 
 <p align="center">
-  <strong>Built with by SK</strong><br>
+  <strong>Built by SK</strong><br>
   <em>Bridging AI, CAD, and Vision in a Single Interface</em>
 </p>
